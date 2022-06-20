@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cellSize: 64px;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board {
+  width: calc(var(--cellSize)*8);
+  height: calc(var(--cellSize)*8);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cell {
+  width: var(--cellSize);
+  height: var(--cellSize);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell img {
+  width: calc(var(--cellSize)/1.4);
+  height: calc(var(--cellSize)/1.4);
+}
+
+.black {
+  background-color: rgb(70, 70, 70);
+}
+
+.white {
+  background-color: #ccc;
+}
