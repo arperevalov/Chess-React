@@ -5,6 +5,9 @@
 
 :root {
   --cellSize: 64px;
+  --color-active: rgb(69, 240, 69);
+  --color-white: #ccc;
+  --color-black: rgb(70, 70, 70);
 }
 
 .app {
@@ -33,12 +36,29 @@
 .cell img {
   width: calc(var(--cellSize)/1.4);
   height: calc(var(--cellSize)/1.4);
+  z-index: 2;
 }
 
 .black {
-  background-color: rgb(70, 70, 70);
+  background-color: var(--color-black);
 }
 
 .white {
-  background-color: #ccc;
+  background-color: var(--color-white);
+}
+
+.selected {
+  background-color: var(--color-active);
+}
+
+.available {
+  height: calc(var(--cellSize)/4);
+  width: calc(var(--cellSize)/4);
+  border-radius: 50%;
+  background-color: var(--color-active);
+  position: absolute;
+}
+
+.active {
+  background-color: var(--color-active);
 }
