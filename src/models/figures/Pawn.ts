@@ -29,11 +29,11 @@ export class Pawn extends Figure {
             return true
         }
 
-        // if (target.y === this.cell.y + direction
-        // && (target.x === this.cell.x + 1 || target.x === this.cell.x - 1)
-        // && this.cell.board.isEnemy(target)) {
-        //     return true
-        // }
+        if (target.y === this.cell.y + direction
+        && (target.x === this.cell.x + 1 || target.x === this.cell.x - 1)
+        && this.cell.isEnemy(target)) {
+            return true
+        }
 
         return false
     }

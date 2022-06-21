@@ -3,11 +3,16 @@
   padding: 0;
 }
 
+body {
+  font-family: sans-serif;
+}
+
 :root {
   --cellSize: 64px;
   --color-active: rgb(69, 240, 69);
   --color-white: #ccc;
   --color-black: rgb(70, 70, 70);
+  --color-selected: rgb(189, 189, 0);
 }
 
 .app {
@@ -23,6 +28,7 @@
   height: calc(var(--cellSize)*8);
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 8px;
 }
 
 .cell {
@@ -48,7 +54,7 @@
 }
 
 .selected {
-  background-color: var(--color-active);
+  background-color: var(--color-selected);
 }
 
 .available {
@@ -61,4 +67,14 @@
 
 .active {
   background-color: var(--color-active);
+}
+
+.lostfigures {
+  padding: 8px;
+  background-color: var(--color-white);
+}
+
+.lostfigures__img {
+  margin-top: 4px;
+  max-height: calc(var(--cellSize)/3);
 }
