@@ -11,10 +11,42 @@ export class King extends Figure {
         this.name = FigureNames.KING
     }
 
+    isKingUnderAttack(target: Cell): boolean {
+        for (let i=0; i < this.cell.board.cells.length; i++) {
+            const row = this.cell.board.cells[i];
+            for (let j=0; j < row.length; j++) {
+                const singleFigure = this.cell.board.cells[i][j]
+                if(this.color !== singleFigure.figure?.color && singleFigure.figure?.canMove(target)){
+                    debugger
+                    return true
+                }
+            }
+        }
+
+        return false
+    }
+
     canMove(target: Cell): boolean {
         if(!super.canMove(target)){
             return false;
         }
-        return true
+
+        if ((target.x === this.cell.x + 1 
+            || target.x === this.cell.x - 1 
+            || target.y === this.cell.y + 1 
+            || target.y === this.cell.y - 1)
+            && 
+            !(target.x > this.cell.x + 1 
+            || target.x < this.cell.x - 1 
+            || target.y > this.cell.y + 1 
+            || target.y < this.cell.y - 1)) {
+                
+                if(this.isKingUnderAttack(target)){
+                    return false
+                }
+                return true
+            }
+
+        return false
     }
 }
