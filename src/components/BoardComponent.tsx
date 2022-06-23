@@ -2,10 +2,10 @@ import React, { FC, useEffect, useState } from "react";
 import { Board } from "../models/Board";
 import { Cell } from "../models/Cell";
 import { Colors } from "../models/Colors";
-import { Figure, FigureNames } from "../models/figures/Figure";
 import { Player } from "../models/Player";
 import CellComponent from "./CellComponent";
 import LostComponent from "./LostComponent";
+import TimerComponent from "./TimerComponent";
 
 interface BoardProps {
     board: Board;
@@ -48,6 +48,7 @@ const BoardComponent: FC<BoardProps> = ({board, setBoard, swapPlayer, currentPla
     return (
         <div>
             <h3>Current player: {currentPlayer?.color}</h3>
+            <TimerComponent currentPlayer={currentPlayer}/>
             <div className="board">
                 {board.cells.map((row, index) => 
                     <React.Fragment key={index}>

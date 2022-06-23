@@ -1,6 +1,6 @@
 import { Board } from "./Board";
 import { Colors } from "./Colors";
-import { Figure } from "./figures/Figure";
+import { Figure, FigureNames } from "./figures/Figure";
 
 export class Cell {
     readonly x: number;
@@ -82,6 +82,20 @@ export class Cell {
         }
 
         return true
+    }
+
+    isKingUnderAttack(target: Cell): boolean {
+        for (let i=0; i < this.board.cells.length; i++) {
+            const row = this.board.cells[i];
+            for (let j=0; j < row.length; j++) {
+                const singleFigure = this.board.cells[i][j]
+                if (this.figure?.color !== singleFigure.figure?.color 
+                    && singleFigure.figure?.canMove(target)){
+                    return true
+                }
+            }
+        }
+        return false
     }
 
     setFigure(figure: Figure) {
